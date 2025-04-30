@@ -87,7 +87,7 @@ DOWNLOAD_CACHE_DIR=${DOWNLOAD_CACHE_DIR:-$DEFAULT_DOWNLOAD_CACHE_DIR}
 if [[ ! -x `which git` ]]; then
   echo "Did not find git, attempting to install it."
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    sudo apt-get install git
+    apt-get install git
   elif [[ "$OSTYPE" == "darwin"* ]]; then  # Mac OSX
     brew install git
   else
@@ -219,7 +219,7 @@ if [[ ${OPEN_SPIEL_BUILD_WITH_JULIA:-"OFF"} == "ON" ]]; then
     # Julia installed needs wget, make sure it's accessible.
     if [[ "$OSTYPE" == "linux-gnu" ]]
     then
-      [[ -x `which wget` ]] || sudo apt-get install wget
+      [[ -x `which wget` ]] || apt-get install wget
     elif [[ "$OSTYPE" == "darwin"* ]]
     then
       [[ -x `which wget` ]] || brew install wget
@@ -251,7 +251,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Need to special-case this until it's installed by default.
     # https://vegastack.com/tutorials/how-to-install-python-3-11-on-ubuntu-22-04/
     echo "Adding Python 3.11 ppa repos"
-    sudo add-apt-repository ppa:deadsnakes/ppa
+    add-apt-repository ppa:deadsnakes/ppa
     PYTHON_PKGS="python3.11 python3.11-dev python3-pip python3-setuptools python3-wheel python3-tk python3.11-venv"
   elif [[ "$OS_PYTHON_VERSION" == "3.12" ]]; then
     # Need to special-case this until it's installed by default.
@@ -286,8 +286,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     echo -e "\e[33mSystem wide packages already installed, skipping their installation.\e[0m"
   else
     echo "System wide packages missing. Installing them..."
-    sudo apt-get -y update
-    sudo apt-get -y install $EXT_DEPS
+    apt-get -y update
+    apt-get -y install $EXT_DEPS
   fi
   if [[ ${OPEN_SPIEL_BUILD_WITH_RUST:-"OFF"} == "ON" ]]; then
     if [[ ! -f $HOME/.cargo/bin/bindgen ]]; then
@@ -296,7 +296,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   fi
 
   if [[ "$TRAVIS" ]]; then
-    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python${OS_PYTHON_VERSION} 10
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python${OS_PYTHON_VERSION} 10
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then  # Mac OSX
   brew search python

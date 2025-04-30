@@ -1,4 +1,4 @@
-#!/bin/bash
+# /bin/bash
 
 # Copyright 2019 DeepMind Technologies Ltd. All rights reserved.
 #
