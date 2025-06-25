@@ -104,6 +104,8 @@ set(GAME_SOURCES
   kriegspiel/kriegspiel.h
   kuhn_poker/kuhn_poker.cc
   kuhn_poker/kuhn_poker.h
+  kuhn_poker_mp/kuhn_poker_mp.cc
+  kuhn_poker_mp/kuhn_poker_mp.h
   laser_tag/laser_tag.cc
   laser_tag/laser_tag.h
   leduc_poker/leduc_poker.cc
@@ -494,6 +496,11 @@ add_executable(kuhn_poker_test kuhn_poker/kuhn_poker_test.cc ${OPEN_SPIEL_OBJECT
                $<TARGET_OBJECTS:tests>
                $<TARGET_OBJECTS:algorithms>)
 add_test(kuhn_poker_test kuhn_poker_test)
+
+add_executable(kuhn_poker_mp_test kuhn_poker_mp/kuhn_poker_mp_test.cc ${OPEN_SPIEL_OBJECTS}
+               $<TARGET_OBJECTS:tests>
+               $<TARGET_OBJECTS:algorithms>)
+add_test(kuhn_poker_mp_test kuhn_poker_mp_test)
 
 add_executable(leduc_poker_test leduc_poker/leduc_poker_test.cc ${OPEN_SPIEL_OBJECTS}
                $<TARGET_OBJECTS:tests>

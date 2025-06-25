@@ -69,6 +69,7 @@ EXPECTED_GAMES = frozenset([
     "hive",
     "kriegspiel",
     "kuhn_poker",
+    "kuhn_poker_mp",
     "laser_tag",
     "lewis_signaling",
     "leduc_poker",
